@@ -1,0 +1,25 @@
+.movie_display{
+    display :flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+h3{
+    display: flex;
+    justify-content: center;
+}
+.banner{
+    position: relative;
+    text-align: center;
+    color: whitesmoke;
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+.page_button{
+    display: flex;
+    justify-content: center;
+}
