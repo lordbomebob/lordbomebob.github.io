@@ -3,7 +3,7 @@ let assignmentData=[]
 
 
 
-fetch(`./assets/Assignment.json`)
+fetch(`./Assignment.json`)
     .then((response)=> response.json())
     .then(info=>{
         assignmentData= info
