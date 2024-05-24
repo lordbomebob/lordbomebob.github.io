@@ -6,6 +6,7 @@ let assignmentData=[]
 fetch(`./Assignment.json`)
     .then((response)=> response.json())
     .then(info=>{
+        console.log(info)
         assignmentData= info
         createTableInHtml(assignmentData)
 
