@@ -1,19 +1,26 @@
-const tableArea=document.getElementById(`table`)
+const tableArea=document.getElementById("table")
 let assignmentData=[]
 
 
 
-fetch(`./Assignment.JSON`)
+fetch(`./assets/Assignment.json`)
     .then((response)=> response.json())
-    .then((data)=>{
-        assignmentData= data
+    .then(info=>{
+        assignmentData= info
+        createTableInHtml(assignmentData)
+
     }
 )
 .catch(console.error)
 
 
 
-var createTableRow=function(data){
+
+
+
+
+
+function createTableRow(data){
     return `
     <tr>
         <td>${data.name}</td>
@@ -23,14 +30,28 @@ var createTableRow=function(data){
     `;
 }
 
-var createTableInHtml=function(dataJson){
+function createTableInHtml(dataJson){
     tableArea.innerHTML=``
     console.log(dataJson)
     for(let data of dataJson){
+        console.log(data)
         tableArea.innerHTML+=createTableRow(data)
     }
 }
 
-console.log(assignmentData)
-createTableInHtml(assignmentData)
+function alphabetSortCreateTable(){
+    assignmentData.sort(compare)
+    console.log(assignmentData)
+    createTableInHtml(assignmentData)
+}
 
+
+function compare( a, b ) {
+    if ( a.name < b.name ){
+        return -1;
+    }
+    if ( a.name > b.name ){
+        return 1;
+    }
+    return 0;
+}
